@@ -33,7 +33,7 @@ aside:hover {
 	z-index: 6180; }
 aside h4 {
 	margin: 0;
-  padding: 0;
+	padding: 0;
 	text-align: center; }
 aside h4 + nav {
 	border-bottom: 1px dotted gray;
@@ -57,7 +57,7 @@ aside + aside:hover {
 	height: auto;
 	min-height: 7.618em;
 	max-height: 90%;  /*for Presto*/
-	max-height: calc(100% - 2em);
+	max-height: calc(100% - 2.162em);
 	overflow: auto;
 	padding-right: .618em; }
 aside + aside h4 {
@@ -171,7 +171,7 @@ kbd.th span {
 	color: yellow; }
 #show_cats .double_bind,
 #show_cats .combo_clash kbd {
-  color: white;
+	color: white;
 	background-color: darkred; }
 #show_cats .combo_clash kbd:first-child {
 	color: inherit;
@@ -184,27 +184,28 @@ body.flow .window_pane {
 	height: auto; }
 body.sideby .window_pane { /*can confuse MSIE*/
 	position: fixed;
-	top: 0;
+	top: 1.2em;
 	left: 50%;
 	right: auto;
-	bottom: auto;
+	bottom: 0;
 	width: 50%;
-	height: 100%;
 	overflow: auto; }
 body.sideby aside + .window_pane {
 	left: 0;
 	border-right: 2px double; }
 body.stack .window_pane { /*can confuse MSIE*/
 	position: fixed;
-	top: 50%;
+	top: 50%; /*for Presto*/
+	top: calc(50% + .6em);
 	left: 0;
 	right: auto;
-	bottom: auto;
+	bottom: 0;
 	width: 100%;
-	height: 50%;
 	overflow: auto; }
 body.stack aside + .window_pane {
-	top: 0;
+	top: 1.2em;
+	bottom: 50%; /*for Presto*/
+	bottom: calc(50% - .6em);
 	border-bottom: 2px double; }
 body.sideby header,
 body.stack header {
@@ -268,7 +269,7 @@ function show(inp)  {
 <meta name='contact' content='http://softmoon-webware.com/Komodo/' />
 <meta name='copyright' content='Copyright © 2014 Joe Golembieski, SoftMoon-WebWare' />
 <meta name='license' content='free to use, distribute, modify; original author and copyright must remain intact' />
-<meta name='last_update' content='February 18, 2014' />
+<meta name='last_update' content='March 2, 2014' />
 
 	Komodo Edit >> help >> list key bindings  (this will open a browser window showing key bindings by category)
 	Generally, right-click on the page >> “save as file” |or| “view source” >> copy&paste to a text-editor and save
@@ -389,7 +390,7 @@ public function parse_cat_file($filter, $¿collect_cats)  { $this->filecount++;
 			array_shift($binding[$j]);
 			$binding[0]['combo']=$binding[$j];
 			if (isset($this->bound_keys[$key][$mod]))  {
-				if ($this->differs($binding[0], $this->bound_keys[$key][$mod])) {
+				if ($this->differs($binding[0], $this->bound_keys[$key][$mod]))  {
 					if (count($binding[0]['combo'])<1  or  count($this->bound_keys[$key][$mod][0]['combo'])<1)
 						$this->bound_keys[$key][$mod]['double_bind']=TRUE;
 					$this->check_combo_clashes($binding[0], $this->bound_keys[$key][$mod]);
@@ -416,19 +417,19 @@ private function augment_cats($cat, $description, $binding)  {
 public function get_mod($keystroke)  {
 	return (stripos($keystroke, 'shift+')!==FALSE ? 1 : 0)
 				+(stripos($keystroke, 'ctrl+')!==FALSE ? 2 : 0)
-				+(stripos($keystroke, 'alt+')!==FALSE ? 4 : 0);	 }
+				+(stripos($keystroke, 'alt+')!==FALSE ? 4 : 0);   }
 
 public function get_key($keystroke)  {
 	$key=html_entity_decode(preg_replace('/(shift|ctrl|alt)\+/iu', "", $keystroke));
 	switch (strToLower($key))  { //group similar keys for sort
-		case "up": $key="αα↑ up";  break;
-		case "down": $key="αβ↓ down";  break;
-		case "left": $key="αγ← left";  break;
-		case "right": $key="αδ→ right";  break;
-		case "page_up": $key="βα▲ page_up";  break;
-		case "page_down": $key="ββ▼ page_down";  break;
-		case "home": $key="βγ◄ home";  break;
-		case "end": $key="βδ► end";  break;
+		case "up": $key="αα↑ ".$key;  break;
+		case "down": $key="αβ↓ ".$key;  break;
+		case "left": $key="αγ← ".$key;  break;
+		case "right": $key="αδ→ ".$key;  break;
+		case "page_up": $key="βα▲ ".$key;  break;
+		case "page_down": $key="ββ▼ ".$key;  break;
+		case "home": $key="βγ◄ ".$key;  break;
+		case "end": $key="βδ► ".$key;  break;
 		case "backspace":
 		case "delete":
 		case "insert": $key="γ".$key;  break;  }
@@ -442,7 +443,7 @@ public function get_key($keystroke)  {
 	return $key;  }
 
 
-public function get_key_ref($key)	 {
+public function get_key_ref($key)   {
 	preg_match("/^[^ ]+/u", $key, $m);  $key=$m[0];
 	switch ($key)  {
 		case "`": return "key_grave";
@@ -489,7 +490,7 @@ public function sort()  {ksort($this->bound_keys, SORT_NATURAL|SORT_FLAG_CASE);}
 
 public function build_HTML()  {
 	$mod=array('shift', 'ctrl', 'alt');  $html=&$this->HTML['keys'];
-	$html.="<section id='show_keys' class='window_pane'><h2>Key Bindings by key:</h2>";
+	$html.="\n<section id='show_keys' class='window_pane'><h2>Key Bindings by key:</h2>\n\n";
 
 	foreach ($this->bound_keys as $key=>$bindings)  {
 		$key=htmlSpecialChars(preg_replace($this->order_marks, "", $key));
@@ -522,12 +523,12 @@ public function build_HTML()  {
 				$html.="</span> ".$bindings[$i][$j]['description']."</li>\n";  }
 			$html.="</ul></div>\n";  }
 		$html.="</div>\n\n";  }
-	$html.="</section><!--  close #show_keys  -->\n\n";}
+	$html.="</section><!--  close #show_keys  -->\n\n";  }
 
 
 public function groom_cats()  {
 	$html=&$this->HTML['cats'];
-	$html.="<section id='show_cats' class='window_pane'><h2>Key Bindings by category:</h2>\n\n";
+	$html.="\n<section id='show_cats' class='window_pane'><h2>Key Bindings by category:</h2>\n\n";
 	foreach ($this->cats  as  $cat=>$bindings)  {
 		$html.="<table id='$cat' class='$cat'><caption>$cat</caption>\n";
 		for ($i=0, $b=count($bindings);  $i<$b;  $i++)  {
@@ -578,20 +579,20 @@ public function echo_HTML($¿cats_first)  {
 	foreach ($this->cats as $cat=>$dummy)  {
 		$nav['cat'].="<li><a href='#$cat'>$cat</a></li>\n";  }
 	if ($¿cats_first)
-		echo $nav['cat'], "</nav>\n<nav>", $nav['key'];
+		echo $nav['cat'], "</nav>\n<nav>\n", $nav['key'];
 	else
-		echo $nav['key'], "</nav>\n<nav>", $nav['cat'];
+		echo $nav['key'], "</nav>\n<nav>\n", $nav['cat'];
 ?>
 </nav>
 </aside>
 <aside><h4>˅ Page Layout ˅</h4>
-<?php if (count($this->cats)>0)  { ?>
+<?php if (count($this->cats)>0): ?>
 <fieldset><legend>layout</legend>
 	<label><input type='radio' name='layout' value='flow' onchange="setPageLayout(this.value);" checked />full-page</label>
 	<label><input type='radio' name='layout' value='sideby' onchange="setPageLayout(this.value);" />side-by-side</label>
 	<label><input type='radio' name='layout' value='stack' onchange="setPageLayout(this.value);" />top-over-bottom</label>
 </fieldset>
-<?php  }
+<?php endif;
 	for ($i=0, $c=count($this->cat_list);  $i<$c;  $i++)  { ?>
 <fieldset><legend><?php echo $this->cat_list[$i]; ?></legend>
 	<label><input type='radio' name='<?php echo $this->cat_list[$i]; ?>' value='hide' onchange="show(this);" />hide</label>
