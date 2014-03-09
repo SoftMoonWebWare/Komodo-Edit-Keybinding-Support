@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html><!-- HTML5  -->
+<html><!--  HTML5  -->
 <head>
 <meta charset="UTF-8">
-<meta name="x-generator" content="SoftMoon-WebWare's convert_keybindings_table.php">
+<meta name="x-generator" content="SoftMoon-WebWare's convert_keybindings_table.php  http://softmoon-webware.com/Komodo/">
 <title>Komodo keybindings by key</title>
-<style>
+<style type="text/css" media="screen,projection">
 body {
 	color: black;
 	background-color: white;
 	padding-top: 2em; }
 header {
 	margin-left: 2.618em; }
-header p {
+header div {
 	display: none; }
 header h1 {
 	margin-left: 1em; }
@@ -61,9 +61,11 @@ aside + aside:hover {
 	overflow: auto;
 	padding-right: .618em; }
 aside + aside h4 {
-	position: absolute;
-	top: 3.382em;
+	position: fixed;
+	top: 4.618em; /*3.382em;*/
 	left: -2.82em;
+	margin: 0;
+	padding: 0;
 	transform: rotate(270deg);
 	-webkit-transform: rotate(270deg);
 	-ms-transform: rotate(270deg);
@@ -85,7 +87,7 @@ kbd span {
 	font-weight: bold;
 	text-align: center; /* ignored when in a justified <p> */
 	margin: 0 .27em;
-	padding: 0 .618em;  }
+	padding: 0 .618em; }
 .tr {
 	margin: 1.618em;
 	border-bottom: 1px solid; }
@@ -94,8 +96,6 @@ kbd.th span {
 	color: yellow;
 	margin: 1em 0 .618em; }
 .td {
-	margin-right: 4em;
-	position: relative;
 	border-bottom: 1px dotted gray; }
 .td kbd,
 .td > span:first-child,
@@ -182,7 +182,7 @@ body.flow .window_pane {
 	position: static;
 	width: 100%;
 	height: auto; }
-body.sideby .window_pane { /*can confuse MSIE*/
+body.sideby .window_pane { /*can confuse MSIE if aside-nav is before the main sections*/
 	position: fixed;
 	top: 1.2em;
 	left: 50%;
@@ -190,10 +190,10 @@ body.sideby .window_pane { /*can confuse MSIE*/
 	bottom: 0;
 	width: 50%;
 	overflow: auto; }
-body.sideby aside + .window_pane {
+body.sideby header + .window_pane {
 	left: 0;
 	border-right: 2px double; }
-body.stack .window_pane { /*can confuse MSIE*/
+body.stack .window_pane { /*can confuse MSIE if aside-nav is before the main sections*/
 	position: fixed;
 	top: 50%; /*for Presto*/
 	top: calc(50% + .6em);
@@ -202,7 +202,7 @@ body.stack .window_pane { /*can confuse MSIE*/
 	bottom: 0;
 	width: 100%;
 	overflow: auto; }
-body.stack aside + .window_pane {
+body.stack header + .window_pane {
 	top: 1.2em;
 	bottom: 50%; /*for Presto*/
 	bottom: calc(50% - .6em);
@@ -221,12 +221,14 @@ body.stack header {
 	background-color: white;
 	border-right: 2px double;
 	z-index: 6180; }
-body.sideby header p,
-body.stack header p {
+body.sideby header div,
+body.stack header div {
 	display: block;
 	position: absolute;
-	top: .382em;
+	top: 2em;
 	left: -1.382em;
+	margin: 0;
+	padding: 0;
 	transform: rotate(270deg);
 	-webkit-transform: rotate(270deg);
 	-ms-transform: rotate(270deg);
@@ -238,7 +240,7 @@ body.stack header:hover {
 	height: auto;
 	border: 2px double; }
 </style>
-<script>
+<script type="text/javascript">
 function setPageLayout(layout)  {
 	document.body.className=layout;  }
 function show(inp)  {
@@ -261,195 +263,15 @@ function show(inp)  {
 </head>
 <body class="flow">
 <header>
-<p>˅ Files: ˅</p>
+<div>˅ Files: ˅</div>
 <h1><span class="file1">1</span>Komodo Keybindings [Unicode friendly]</h1>
 <h1><span class="file2">2</span>Komodo Keybindings [Default]</h1>
-420 total snippet keybindings<br>
-12 total macro keybindings<br>
+<p>420 total snippet keybindings</p>
+<p>12 total macro keybindings</p>
+<p>1 total URL keybindings</p>
+<p>0 total command keybindings</p>
 </header>
-<aside id="nav"><h4>▼↓ Navigation: on this page ↓▼</h4>
-<nav>
-<li><a href="#key_Escape">Escape</a></li>
-<li><a href="#key_F1">F1</a></li>
-<li><a href="#key_F2">F2</a></li>
-<li><a href="#key_F3">F3</a></li>
-<li><a href="#key_F4">F4</a></li>
-<li><a href="#key_F5">F5</a></li>
-<li><a href="#key_F6">F6</a></li>
-<li><a href="#key_F7">F7</a></li>
-<li><a href="#key_F8">F8</a></li>
-<li><a href="#key_F9">F9</a></li>
-<li><a href="#key_F10">F10</a></li>
-<li><a href="#key_F11">F11</a></li>
-<li><a href="#key_F12">F12</a></li>
-<li><a href="#key_Return">Return</a></li>
-<li><a href="#key_Space">Space</a></li>
-<li><a href="#key_Tab">Tab</a></li>
-<li><a href="#key_%E2%86%91">↑ Up</a></li>
-<li><a href="#key_%E2%86%93">↓ Down</a></li>
-<li><a href="#key_%E2%86%90">← Left</a></li>
-<li><a href="#key_%E2%86%92">→ Right</a></li>
-<li><a href="#key_%E2%96%B2">▲ Page_Up</a></li>
-<li><a href="#key_%E2%96%BC">▼ Page_Down</a></li>
-<li><a href="#key_%E2%97%84">◄ Home</a></li>
-<li><a href="#key_%E2%96%BA">► End</a></li>
-<li><a href="#key_Backspace">Backspace</a></li>
-<li><a href="#key_Delete">Delete</a></li>
-<li><a href="#key_Insert">Insert</a></li>
-<li><a href="#key_A">A</a></li>
-<li><a href="#key_B">B</a></li>
-<li><a href="#key_C">C</a></li>
-<li><a href="#key_D">D</a></li>
-<li><a href="#key_E">E</a></li>
-<li><a href="#key_F">F</a></li>
-<li><a href="#key_G">G</a></li>
-<li><a href="#key_H">H</a></li>
-<li><a href="#key_I">I</a></li>
-<li><a href="#key_J">J</a></li>
-<li><a href="#key_K">K</a></li>
-<li><a href="#key_L">L</a></li>
-<li><a href="#key_M">M</a></li>
-<li><a href="#key_N">N</a></li>
-<li><a href="#key_O">O</a></li>
-<li><a href="#key_P">P</a></li>
-<li><a href="#key_Q">Q</a></li>
-<li><a href="#key_R">R</a></li>
-<li><a href="#key_S">S</a></li>
-<li><a href="#key_T">T</a></li>
-<li><a href="#key_U">U</a></li>
-<li><a href="#key_V">V</a></li>
-<li><a href="#key_W">W</a></li>
-<li><a href="#key_X">X</a></li>
-<li><a href="#key_Y">Y</a></li>
-<li><a href="#key_Z">Z</a></li>
-<li><a href="#key_1">1 !</a></li>
-<li><a href="#key_2">2 @</a></li>
-<li><a href="#key_3">3 #</a></li>
-<li><a href="#key_4">4 $</a></li>
-<li><a href="#key_5">5 %</a></li>
-<li><a href="#key_6">6 ^</a></li>
-<li><a href="#key_7">7 &amp;</a></li>
-<li><a href="#key_8">8 *</a></li>
-<li><a href="#key_9">9 (</a></li>
-<li><a href="#key_0">0 )</a></li>
-<li><a href="#key_dash">- _</a></li>
-<li><a href="#key_equals">= +</a></li>
-<li><a href="#key_lbrace">[ {</a></li>
-<li><a href="#key_rbrace">] }</a></li>
-<li><a href="#key_bslash">\ |</a></li>
-<li><a href="#key_grave">` ~</a></li>
-<li><a href="#key_apos">' "</a></li>
-<li><a href="#key_semicolin">; :</a></li>
-<li><a href="#key_comma">, &lt;</a></li>
-<li><a href="#key_period">. &gt;</a></li>
-<li><a href="#key_slash">/ ?</a></li>
-</nav>
-<nav>
-<li><a href="#BrowserPreview">BrowserPreview</a></li>
-<li><a href="#Code">Code</a></li>
-<li><a href="#Editor">Editor</a></li>
-<li><a href="#FastOpen">FastOpen</a></li>
-<li><a href="#Find">Find</a></li>
-<li><a href="#General">General</a></li>
-<li><a href="#Help">Help</a></li>
-<li><a href="#Macro">Macro</a></li>
-<li><a href="#Tools">Tools</a></li>
-<li><a href="#UserInterface">UserInterface</a></li>
-<li><a href="#Snippets">Snippets</a></li>
-<li><a href="#Macros">Macros</a></li>
-</nav>
-</aside>
-<aside><h4>˅ Page Layout ˅</h4>
-<fieldset><legend>layout</legend>
-	<label><input name="layout" value="flow" onchange="setPageLayout(this.value);" checked="checked" type="radio">full-page</label>
-	<label><input name="layout" value="sideby" onchange="setPageLayout(this.value);" type="radio">side-by-side</label>
-	<label><input name="layout" value="stack" onchange="setPageLayout(this.value);" type="radio">top-over-bottom</label>
-</fieldset>
-<fieldset><legend>BrowserPreview</legend>
-	<label><input name="BrowserPreview" value="hide" onchange="show(this);" type="radio">hide</label>
-	<label><input name="BrowserPreview" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
-	<label><input name="BrowserPreview" value="highlight" onclick="show(this)" type="radio">highlight</label>
-	<input value="#202000" type="color">
-	<input value="#DFDFFF" type="color">
-</fieldset>
-<fieldset><legend>Code</legend>
-	<label><input name="Code" value="hide" onchange="show(this);" type="radio">hide</label>
-	<label><input name="Code" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
-	<label><input name="Code" value="highlight" onclick="show(this)" type="radio">highlight</label>
-	<input value="#002000" type="color">
-	<input value="#FFDFFF" type="color">
-</fieldset>
-<fieldset><legend>Editor</legend>
-	<label><input name="Editor" value="hide" onchange="show(this);" type="radio">hide</label>
-	<label><input name="Editor" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
-	<label><input name="Editor" value="highlight" onclick="show(this)" type="radio">highlight</label>
-	<input value="#002020" type="color">
-	<input value="#FFDFDF" type="color">
-</fieldset>
-<fieldset><legend>FastOpen</legend>
-	<label><input name="FastOpen" value="hide" onchange="show(this);" type="radio">hide</label>
-	<label><input name="FastOpen" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
-	<label><input name="FastOpen" value="highlight" onclick="show(this)" type="radio">highlight</label>
-	<input value="#000020" type="color">
-	<input value="#FFFFDF" type="color">
-</fieldset>
-<fieldset><legend>Find</legend>
-	<label><input name="Find" value="hide" onchange="show(this);" type="radio">hide</label>
-	<label><input name="Find" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
-	<label><input name="Find" value="highlight" onclick="show(this)" type="radio">highlight</label>
-	<input value="#200020" type="color">
-	<input value="#DFFFDF" type="color">
-</fieldset>
-<fieldset><legend>General</legend>
-	<label><input name="General" value="hide" onchange="show(this);" type="radio">hide</label>
-	<label><input name="General" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
-	<label><input name="General" value="highlight" onclick="show(this)" type="radio">highlight</label>
-	<input value="#002000" type="color">
-	<input value="#DFFFFF" type="color">
-</fieldset>
-<fieldset><legend>Help</legend>
-	<label><input name="Help" value="hide" onchange="show(this);" type="radio">hide</label>
-	<label><input name="Help" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
-	<label><input name="Help" value="highlight" onclick="show(this)" type="radio">highlight</label>
-	<input value="#002020" type="color">
-	<input value="#AFAFFF" type="color">
-</fieldset>
-<fieldset><legend>Macro</legend>
-	<label><input name="Macro" value="hide" onchange="show(this);" type="radio">hide</label>
-	<label><input name="Macro" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
-	<label><input name="Macro" value="highlight" onclick="show(this)" type="radio">highlight</label>
-	<input value="#202000" type="color">
-	<input value="#FFAFFF" type="color">
-</fieldset>
-<fieldset><legend>Tools</legend>
-	<label><input name="Tools" value="hide" onchange="show(this);" type="radio">hide</label>
-	<label><input name="Tools" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
-	<label><input name="Tools" value="highlight" onclick="show(this)" type="radio">highlight</label>
-	<input value="#002000" type="color">
-	<input value="#FFAFAF" type="color">
-</fieldset>
-<fieldset><legend>UserInterface</legend>
-	<label><input name="UserInterface" value="hide" onchange="show(this);" type="radio">hide</label>
-	<label><input name="UserInterface" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
-	<label><input name="UserInterface" value="highlight" onclick="show(this)" type="radio">highlight</label>
-	<input value="#002020" type="color">
-	<input value="#FFFFAF" type="color">
-</fieldset>
-<fieldset><legend>Snippets</legend>
-	<label><input name="Snippets" value="hide" onchange="show(this);" type="radio">hide</label>
-	<label><input name="Snippets" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
-	<label><input name="Snippets" value="highlight" onclick="show(this)" type="radio">highlight</label>
-	<input value="#000020" type="color">
-	<input value="#AFFFAF" type="color">
-</fieldset>
-<fieldset><legend>Macros</legend>
-	<label><input name="Macros" value="hide" onchange="show(this);" type="radio">hide</label>
-	<label><input name="Macros" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
-	<label><input name="Macros" value="highlight" onclick="show(this)" type="radio">highlight</label>
-	<input value="#200020" type="color">
-	<input value="#AFFFFF" type="color">
-</fieldset>
-</aside>
+
 
 <section id="show_keys" class="window_pane"><h2>Key Bindings by key:</h2>
 
@@ -484,6 +306,7 @@ function show(inp)  {
 	<li class="Help"><span class="cat">Help</span> Alternate Help on Selection</li>
 </ul></div>
 <div class="td"><kbd>+<span>shift</span>+<span>ctrl</span></kbd><ul>
+	<li class="URLs"><span class="cat">URLs<span class="file1">1</span> </span> PHP manual</li>
 </ul></div>
 <div class="td"><kbd>+<span>alt</span></kbd><ul>
 	<li class="Macros"><span class="cat">Macros<span class="file1">1</span> </span> Unicode Keybindings table:  Alt F1</li>
@@ -3334,8 +3157,216 @@ function show(inp)  {
 </tr>
 </tbody></table>
 
+<table id="Macros" class="Macros"><caption>Macros</caption>
+<tbody><tr>
+	<td>down with scroll</td>
+	<td><ul>
+		<li><kbd><span>Alt</span>+<span>Down</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>left with scroll</td>
+	<td><ul>
+		<li class="double_bind combo_clash"><kbd><span>Alt</span>+<span>Left</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>right with scroll</td>
+	<td><ul>
+		<li class="double_bind combo_clash"><kbd><span>Alt</span>+<span>Right</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>scroll left</td>
+	<td><ul>
+		<li><kbd><span>Alt</span>+<span>Home</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>scroll right</td>
+	<td><ul>
+		<li><kbd><span>Alt</span>+<span>End</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>up with scroll</td>
+	<td><ul>
+		<li><kbd><span>Alt</span>+<span>Up</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>static whitespace</td>
+	<td><ul>
+		<li><kbd><span>Shift</span>+<span>F10</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>virtual left</td>
+	<td><ul>
+		<li class="double_bind combo_clash"><kbd><span>Left</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>virtual right</td>
+	<td><ul>
+		<li class="double_bind combo_clash"><kbd><span>Right</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>virtual whitespace</td>
+	<td><ul>
+		<li><kbd><span>F10</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>Unicode Keybindings table:  Alt F1</td>
+	<td><ul>
+		<li><kbd><span>Alt</span>+<span>F1</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>Keybindings By Key:  Shift+Alt+F1</td>
+	<td><ul>
+		<li><kbd><span>Alt</span>+<span>Shift</span>+<span>F1</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+</tbody></table>
+
 <table id="Snippets" class="Snippets"><caption>Snippets</caption>
 <tbody><tr>
+	<td>foo-bar</td>
+	<td><ul>
+		<li class="combo_clash"><kbd><span>Ctrl</span>+<span>K</span></kbd>, <kbd><span>F11</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;amp;</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>&amp;</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;apos;</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>'</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&lt;br /&gt;</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Shift</span>+<span>Return</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&lt;br&gt;</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Return</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;cong;  congruent / approximately equal</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>=</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;crarr;  carriage-return arrow</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Ctrl</span>+<span>Alt</span>+<span>Shift</span>+<span>Return</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;dArr; down double arrow</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Ctrl</span>+<span>Alt</span>+<span>Shift</span>+<span>Down</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;emdash;</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Ctrl</span>+<span>Alt</span>+<span>-</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;empty; empty set / diameter</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>0</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;emsp;</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Ctrl</span>+<span>Alt</span>+<span>Space</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;endash;</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Alt</span>+<span>-</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;ensp;</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Ctrl</span>+<span>Space</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;gt;</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>&gt;</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;hArr; horizontal double arrow</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Ctrl</span>+<span>,</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;lArr; left double arrow</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Ctrl</span>+<span>Alt</span>+<span>Shift</span>+<span>Left</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;lt;</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>&lt;</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;nbsp;</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Space</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>Shift</span>+<span>Space</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;quot;</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>"</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;rArr; right double arrow;</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Ctrl</span>+<span>Alt</span>+<span>Shift</span>+<span>Right</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;shy; soft hyphen</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>-</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
+	<td>&amp;uArr; up double arrow</td>
+	<td><ul>
+		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Ctrl</span>+<span>Alt</span>+<span>Shift</span>+<span>Up</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+	</ul></td>
+</tr>
+<tr>
 	<td>É acute</td>
 	<td><ul>
 		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>Shift</span>+<span>E</span></kbd>, <kbd><span>Alt</span>+<span>`</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
@@ -5402,217 +5433,210 @@ function show(inp)  {
 		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>Shift</span>+<span>Up</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
 	</ul></td>
 </tr>
-<tr>
-	<td>foo-bar</td>
-	<td><ul>
-		<li class="combo_clash"><kbd><span>Ctrl</span>+<span>K</span></kbd>, <kbd><span>F11</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;amp;</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>&amp;</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;apos;</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>'</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&lt;br /&gt;</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Shift</span>+<span>Return</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&lt;br&gt;</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Return</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;cong;  congruent / approximately equal</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>=</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;crarr;  carriage-return arrow</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Ctrl</span>+<span>Alt</span>+<span>Shift</span>+<span>Return</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;dArr; down double arrow</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Ctrl</span>+<span>Alt</span>+<span>Shift</span>+<span>Down</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;emdash;</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Ctrl</span>+<span>Alt</span>+<span>-</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;empty; empty set / diameter</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>0</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;emsp;</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Ctrl</span>+<span>Alt</span>+<span>Space</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;endash;</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Alt</span>+<span>-</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;ensp;</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Ctrl</span>+<span>Space</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;gt;</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>&gt;</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;hArr; horizontal double arrow</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Ctrl</span>+<span>,</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;lArr; left double arrow</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Ctrl</span>+<span>Alt</span>+<span>Shift</span>+<span>Left</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;lt;</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>&lt;</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;nbsp;</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Space</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>Shift</span>+<span>Space</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;quot;</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>"</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;rArr; right double arrow;</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Ctrl</span>+<span>Alt</span>+<span>Shift</span>+<span>Right</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;shy; soft hyphen</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>-</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>&amp;uArr; up double arrow</td>
-	<td><ul>
-		<li><kbd><span>Ctrl</span>+<span>Alt</span>+<span>;</span></kbd>, <kbd><span>Ctrl</span>+<span>Alt</span>+<span>Shift</span>+<span>Up</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
 </tbody></table>
 
-<table id="Macros" class="Macros"><caption>Macros</caption>
+<table id="URLs" class="URLs"><caption>URLs</caption>
 <tbody><tr>
-	<td>scroll right</td>
+	<td>PHP manual</td>
 	<td><ul>
-		<li><kbd><span>Alt</span>+<span>End</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>scroll left</td>
-	<td><ul>
-		<li><kbd><span>Alt</span>+<span>Home</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>virtual left</td>
-	<td><ul>
-		<li class="double_bind combo_clash"><kbd><span>Left</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>virtual right</td>
-	<td><ul>
-		<li class="double_bind combo_clash"><kbd><span>Right</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>down with scroll</td>
-	<td><ul>
-		<li><kbd><span>Alt</span>+<span>Down</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>left with scroll</td>
-	<td><ul>
-		<li class="double_bind combo_clash"><kbd><span>Alt</span>+<span>Left</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>right with scroll</td>
-	<td><ul>
-		<li class="double_bind combo_clash"><kbd><span>Alt</span>+<span>Right</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>up with scroll</td>
-	<td><ul>
-		<li><kbd><span>Alt</span>+<span>Up</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>static whitespace</td>
-	<td><ul>
-		<li><kbd><span>Shift</span>+<span>F10</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>Unicode Keybindings table:  Alt F1</td>
-	<td><ul>
-		<li><kbd><span>Alt</span>+<span>F1</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>Keybindings By Key:  Shift+Alt+F1</td>
-	<td><ul>
-		<li><kbd><span>Alt</span>+<span>Shift</span>+<span>F1</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
-	</ul></td>
-</tr>
-<tr>
-	<td>virtual whitespace</td>
-	<td><ul>
-		<li><kbd><span>F10</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
+		<li><kbd><span>Ctrl</span>+<span>Shift</span>+<span>F1</span></kbd>&nbsp; ‡<span class="file1">1</span></li>
 	</ul></td>
 </tr>
 </tbody></table>
 
 </section><!--  close #show_cats  -->
 
+
+<aside id="nav"><h4>▼↓ Navigation: on this page ↓▼</h4>
+<nav>
+<li><a href="#key_Escape">Escape</a></li>
+<li><a href="#key_F1">F1</a></li>
+<li><a href="#key_F2">F2</a></li>
+<li><a href="#key_F3">F3</a></li>
+<li><a href="#key_F4">F4</a></li>
+<li><a href="#key_F5">F5</a></li>
+<li><a href="#key_F6">F6</a></li>
+<li><a href="#key_F7">F7</a></li>
+<li><a href="#key_F8">F8</a></li>
+<li><a href="#key_F9">F9</a></li>
+<li><a href="#key_F10">F10</a></li>
+<li><a href="#key_F11">F11</a></li>
+<li><a href="#key_F12">F12</a></li>
+<li><a href="#key_Return">Return</a></li>
+<li><a href="#key_Space">Space</a></li>
+<li><a href="#key_Tab">Tab</a></li>
+<li><a href="#key_%E2%86%91">↑ Up</a></li>
+<li><a href="#key_%E2%86%93">↓ Down</a></li>
+<li><a href="#key_%E2%86%90">← Left</a></li>
+<li><a href="#key_%E2%86%92">→ Right</a></li>
+<li><a href="#key_%E2%96%B2">▲ Page_Up</a></li>
+<li><a href="#key_%E2%96%BC">▼ Page_Down</a></li>
+<li><a href="#key_%E2%97%84">◄ Home</a></li>
+<li><a href="#key_%E2%96%BA">► End</a></li>
+<li><a href="#key_Backspace">Backspace</a></li>
+<li><a href="#key_Delete">Delete</a></li>
+<li><a href="#key_Insert">Insert</a></li>
+<li><a href="#key_A">A</a></li>
+<li><a href="#key_B">B</a></li>
+<li><a href="#key_C">C</a></li>
+<li><a href="#key_D">D</a></li>
+<li><a href="#key_E">E</a></li>
+<li><a href="#key_F">F</a></li>
+<li><a href="#key_G">G</a></li>
+<li><a href="#key_H">H</a></li>
+<li><a href="#key_I">I</a></li>
+<li><a href="#key_J">J</a></li>
+<li><a href="#key_K">K</a></li>
+<li><a href="#key_L">L</a></li>
+<li><a href="#key_M">M</a></li>
+<li><a href="#key_N">N</a></li>
+<li><a href="#key_O">O</a></li>
+<li><a href="#key_P">P</a></li>
+<li><a href="#key_Q">Q</a></li>
+<li><a href="#key_R">R</a></li>
+<li><a href="#key_S">S</a></li>
+<li><a href="#key_T">T</a></li>
+<li><a href="#key_U">U</a></li>
+<li><a href="#key_V">V</a></li>
+<li><a href="#key_W">W</a></li>
+<li><a href="#key_X">X</a></li>
+<li><a href="#key_Y">Y</a></li>
+<li><a href="#key_Z">Z</a></li>
+<li><a href="#key_1">1 !</a></li>
+<li><a href="#key_2">2 @</a></li>
+<li><a href="#key_3">3 #</a></li>
+<li><a href="#key_4">4 $</a></li>
+<li><a href="#key_5">5 %</a></li>
+<li><a href="#key_6">6 ^</a></li>
+<li><a href="#key_7">7 &amp;</a></li>
+<li><a href="#key_8">8 *</a></li>
+<li><a href="#key_9">9 (</a></li>
+<li><a href="#key_0">0 )</a></li>
+<li><a href="#key_dash">- _</a></li>
+<li><a href="#key_equals">= +</a></li>
+<li><a href="#key_lbrace">[ {</a></li>
+<li><a href="#key_rbrace">] }</a></li>
+<li><a href="#key_bslash">\ |</a></li>
+<li><a href="#key_grave">` ~</a></li>
+<li><a href="#key_apos">' "</a></li>
+<li><a href="#key_semicolin">; :</a></li>
+<li><a href="#key_comma">, &lt;</a></li>
+<li><a href="#key_period">. &gt;</a></li>
+<li><a href="#key_slash">/ ?</a></li>
+</nav>
+<nav>
+<li><a href="#BrowserPreview">BrowserPreview</a></li>
+<li><a href="#Code">Code</a></li>
+<li><a href="#Editor">Editor</a></li>
+<li><a href="#FastOpen">FastOpen</a></li>
+<li><a href="#Find">Find</a></li>
+<li><a href="#General">General</a></li>
+<li><a href="#Help">Help</a></li>
+<li><a href="#Macro">Macro</a></li>
+<li><a href="#Tools">Tools</a></li>
+<li><a href="#UserInterface">UserInterface</a></li>
+<li><a href="#Macros">Macros</a></li>
+<li><a href="#Snippets">Snippets</a></li>
+<li><a href="#URLs">URLs</a></li>
+</nav>
+</aside>
+<aside><h4>˅ Page Layout ˅</h4>
+<fieldset><legend>layout</legend>
+	<label><input name="layout" value="flow" onchange="setPageLayout(this.value);" checked="checked" type="radio">full-page</label>
+	<label><input name="layout" value="sideby" onchange="setPageLayout(this.value);" type="radio">side-by-side</label>
+	<label><input name="layout" value="stack" onchange="setPageLayout(this.value);" type="radio">top-over-bottom</label>
+</fieldset>
+<fieldset><legend>BrowserPreview</legend>
+	<label><input name="BrowserPreview" value="hide" onchange="show(this);" type="radio">hide</label>
+	<label><input name="BrowserPreview" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
+	<label><input name="BrowserPreview" value="highlight" onclick="show(this)" type="radio">highlight</label>
+	<input value="#002B2B" type="color">
+	<input value="#FFC6C6" type="color">
+</fieldset>
+<fieldset><legend>Code</legend>
+	<label><input name="Code" value="hide" onchange="show(this);" type="radio">hide</label>
+	<label><input name="Code" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
+	<label><input name="Code" value="highlight" onclick="show(this)" type="radio">highlight</label>
+	<input value="#00172B" type="color">
+	<input value="#FFE0C6" type="color">
+</fieldset>
+<fieldset><legend>Editor</legend>
+	<label><input name="Editor" value="hide" onchange="show(this);" type="radio">hide</label>
+	<label><input name="Editor" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
+	<label><input name="Editor" value="highlight" onclick="show(this)" type="radio">highlight</label>
+	<input value="#00032B" type="color">
+	<input value="#FFFAC6" type="color">
+</fieldset>
+<fieldset><legend>FastOpen</legend>
+	<label><input name="FastOpen" value="hide" onchange="show(this);" type="radio">hide</label>
+	<label><input name="FastOpen" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
+	<label><input name="FastOpen" value="highlight" onclick="show(this)" type="radio">highlight</label>
+	<input value="#10002B" type="color">
+	<input value="#E9FFC6" type="color">
+</fieldset>
+<fieldset><legend>Find</legend>
+	<label><input name="Find" value="hide" onchange="show(this);" type="radio">hide</label>
+	<label><input name="Find" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
+	<label><input name="Find" value="highlight" onclick="show(this)" type="radio">highlight</label>
+	<input value="#24002B" type="color">
+	<input value="#CFFFC6" type="color">
+</fieldset>
+<fieldset><legend>General</legend>
+	<label><input name="General" value="hide" onchange="show(this);" type="radio">hide</label>
+	<label><input name="General" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
+	<label><input name="General" value="highlight" onclick="show(this)" type="radio">highlight</label>
+	<input value="#2B001E" type="color">
+	<input value="#C6FFD8" type="color">
+</fieldset>
+<fieldset><legend>Help</legend>
+	<label><input name="Help" value="hide" onchange="show(this);" type="radio">hide</label>
+	<label><input name="Help" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
+	<label><input name="Help" value="highlight" onclick="show(this)" type="radio">highlight</label>
+	<input value="#2B000A" type="color">
+	<input value="#C6FFF2" type="color">
+</fieldset>
+<fieldset><legend>Macro</legend>
+	<label><input name="Macro" value="hide" onchange="show(this);" type="radio">hide</label>
+	<label><input name="Macro" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
+	<label><input name="Macro" value="highlight" onclick="show(this)" type="radio">highlight</label>
+	<input value="#2B0A00" type="color">
+	<input value="#C6F2FF" type="color">
+</fieldset>
+<fieldset><legend>Tools</legend>
+	<label><input name="Tools" value="hide" onchange="show(this);" type="radio">hide</label>
+	<label><input name="Tools" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
+	<label><input name="Tools" value="highlight" onclick="show(this)" type="radio">highlight</label>
+	<input value="#2B1E00" type="color">
+	<input value="#C6D8FF" type="color">
+</fieldset>
+<fieldset><legend>UserInterface</legend>
+	<label><input name="UserInterface" value="hide" onchange="show(this);" type="radio">hide</label>
+	<label><input name="UserInterface" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
+	<label><input name="UserInterface" value="highlight" onclick="show(this)" type="radio">highlight</label>
+	<input value="#242B00" type="color">
+	<input value="#CFC6FF" type="color">
+</fieldset>
+<fieldset><legend>Macros</legend>
+	<label><input name="Macros" value="hide" onchange="show(this);" type="radio">hide</label>
+	<label><input name="Macros" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
+	<label><input name="Macros" value="highlight" onclick="show(this)" type="radio">highlight</label>
+	<input value="#102B00" type="color">
+	<input value="#E9C6FF" type="color">
+</fieldset>
+<fieldset><legend>Snippets</legend>
+	<label><input name="Snippets" value="hide" onchange="show(this);" type="radio">hide</label>
+	<label><input name="Snippets" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
+	<label><input name="Snippets" value="highlight" onclick="show(this)" type="radio">highlight</label>
+	<input value="#002B03" type="color">
+	<input value="#FFC6FA" type="color">
+</fieldset>
+<fieldset><legend>URLs</legend>
+	<label><input name="URLs" value="hide" onchange="show(this);" type="radio">hide</label>
+	<label><input name="URLs" value="show" onchange="show(this);" checked="checked" type="radio">show</label>
+	<label><input name="URLs" value="highlight" onclick="show(this)" type="radio">highlight</label>
+	<input value="#002B17" type="color">
+	<input value="#FFC6E0" type="color">
+</fieldset>
+</aside>
 
 </body></html>
