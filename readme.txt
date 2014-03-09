@@ -5,7 +5,7 @@ It can also include a "groomed" version of the original "keybindings by category
 There is also a navigation menu with quick-click to each key, and if included, category tables.
 
 Once you process your key bindings list with this PHP program, save the output HTML from the browser* (right click on the page and "save to file") to the file of your choice on your computer where you use Komodo Edit {*at the time of this writing, Google's Chrome will alter the link addresses when "saving HTML page to file" from a simple relative-to-page format ("#destID") to a complete absolute address (like "http://localhost/SoftMoon/Komodo/convert_keybindings_table.php#destID") and these links will then no longer work correctly when we later call this file using a "file://" URL as shown below.  Use Firefox to --create-- a static copy of these tables, which can then be --viewed-- in Chrome, the latter which at this time more fully supports the given HTML5.}.  Then open the folder where you just saved the file, and open the file you just saved in another window of your browser.  This will give you a "file://" URL in your browser's address bar; copy it to the clipboard.   In Komodo Edit's right-side-toolbar, where snippets, macros, etc. are stored, right-click and Add > New URL.  Paste the URL into the URL field.  I like to bind it to Alt+F1 for quick access; or you can just click on it in the toolbar.  This will quickly open the "keybindings by key" HTML table in your default browser without needing an active server/PHP setup (for as long as you don't change the bindings).
-Firefox is my "default" system browser, but at this time of writing, "Blink" browsers (current Chrome, Opera) yield the best result when viewing the HTML5 output of this program (and note MSIE 9 & 10 fail even basic on-page navigation).  To get Komodo Edit to open the static-copy saved as shown above in the specific browser of your choice, first locate that browser's .exe file on your computer.  Opera, for instance, is at "C:\Program Files (x86)\Opera\opera.exe" on my MS-Windows® system.  Then in Komodo's toolbar, create a new Macro similar to the following JavaScript:
+Firefox is my "default" system browser, but at this time of writing, "Blink" browsers (current Chrome, Opera) yield the best result when viewing the HTML5 output of this program.  To get Komodo Edit to open the static-copy saved as shown above in the specific browser of your choice, first locate that browser's .exe file on your computer.  Opera, for instance, is at "C:\Program Files (x86)\Opera\opera.exe" on my MS-Windows® system.  Then in Komodo's toolbar, create a new Macro similar to the following JavaScript:
 
 ko.browse.openUrlInDefaultBrowser(
  "file:///C:/Users/user/documents/Komodo/keybindings_by_key.htm",
@@ -16,9 +16,3 @@ Note above how we must double the backslashes in the path-to-Browser because the
 For more info, and further Komodo Edit support files (including the 339 Unicode international extended-character snippets listed in the demo files), see:
 
 http://softmoon-webware.com/Komodo/
-
-PS due to the file name restrictions that PHPClasses.org places on file names, please rename the following file in the package:
-Komodo_Keybindings_-Default-.htm
-becomes:
-Komodo Keybindings [Default].htm
-This latter name with spaces is the default name that a browser such as Firefox will give the file when asked to "save the HTML source-file".
