@@ -62,7 +62,7 @@ aside + aside:hover {
 	padding-right: .618em; }
 aside + aside h4 {
 	position: fixed;
-	top: 4.618em; /*3.382em;*/
+	top: 4.618em;
 	left: -2.82em;
 	margin: 0;
 	padding: 0;
@@ -124,13 +124,13 @@ kbd.th span {
 .double_bind .cat {
 	color: white;
 	background-color: darkRed; }
-.file1 {background-color: lightcyan;}
-.file2 {background-color: lightgreen;}
-.file3 {background-color: lightyellow;}
-.file4 {background-color: lightorange;}
-.file5 {background-color: lightred;}
-.file6 {background-color: lightviolet;}
-.file7 {background-color: lightindigo;}
+.file1 {background-color: lightCyan;}
+.file2 {background-color: lightGreen;}
+.file3 {background-color: lightYellow;}
+.file4 {background-color: lightSalmon;}
+.file5 {background-color: lightPink;}
+.file6 {background-color: paleVioletRed;}
+.file7 {background-color: lightSteelBlue;}
 .file1,
 .file2,
 .file3,
@@ -271,18 +271,18 @@ function show(inp)  {
 <meta name='contact' content='http://softmoon-webware.com/Komodo/' />
 <meta name='copyright' content='Copyright © 2014 Joe Golembieski, SoftMoon-WebWare' />
 <meta name='license' content='free to use, distribute, modify; original author, copyright, and license must remain intact' />
-<meta name='last_update' content='March 9, 2014' />
+<meta name='last_update' content='March 26, 2014' />
 
-	Komodo Edit >> help >> list key bindings  (this will open a browser window showing key bindings by category)
-	Generally, right-click on the page >> “save as file” |or| “view source” >> copy&paste to a text-editor and save
+	Komodo Edit main menu >> help >> list key bindings  (this will open a browser window showing key bindings by category)
+	Generally, right-click on the browser page >> “save as file” |or| “view source” >> copy&paste to a text-editor and save
 	 ==!! If you save the resulting HTML file via a text-editor,
 	 ==   BE SURE to save it in =ITS= NATIVE CHARSET ENCODING (windows-1252 on my system at the time of this writing) !!==
 	Save the resulting HTML file, named as shown below, in the same folder as this PHP file, then run this file.
-	Note that Komodo Edit processes and generates the output for the resulting HTML file, and in doing so pays no
-	attention to charset encoding (it should be UTF-8, Komodo’s internal encoding);
+	Note that Komodo Edit processes and generates the output for the resulting “key bindings by category” HTML file,
+	and in doing so pays no attention to charset encoding (it should be UTF-8, Komodo’s internal encoding);
 	many (but not all) extended Unicode characters are then unfortunately output as a ? by Komodo in
-	this “keybindings by category” HTML-based output-dump-file when using MS-Windows, (and thus in this program’s output)
-	but they will work properly when using them within the editor and the files you create with it
+	the “keybindings by category” HTML-based output-dump-file when using MS-Windows, (and thus in this program’s output)
+	but these extended characters will work properly when using them within the editor and the files you create with it
 	(as long as you keep YOUR files’ character encoding correct).
 	http://localhost/convert_keybindings_table.php                              ←no filename given defaults to “keybindings_by_category.htm”
 	http://localhost/convert_keybindings_table.php?filename=myFavoriteKBs.htm
@@ -346,7 +346,7 @@ private $¿groom_cats, $filecount=0,
  * Greek-keyboard layout, provided none of the Greek-keys use the bullet character.
  */
 
-public function __construct($¿groom_cats)  {$this->¿groom_cats=$¿groom_cats;}
+public function __construct($¿groom_cats)  {$this->¿groom_cats=(BOOLEAN)$¿groom_cats;}
 
 
 public function parse_cat_file($cat_file, $filter)  { $this->filecount++;
@@ -423,6 +423,7 @@ public function get_mod($keystroke)  {
 				+(stripos($keystroke, 'ctrl+')!==FALSE ? 2 : 0)
 				+(stripos($keystroke, 'alt+')!==FALSE ? 4 : 0);  }
 
+
 public function get_key($keystroke)  {
 	$key=html_entity_decode(preg_replace('/(shift|ctrl|alt)\+/iu', "", $keystroke));
 	switch (strToLower($key))  { //group similar keys for sort
@@ -437,12 +438,12 @@ public function get_key($keystroke)  {
 		case "backspace":
 		case "delete":
 		case "insert": $key="γ•".$key;  break;  }
-	//Note how keys are prefixed with Greek specifically for sorting: αβγδ
+	//Note how keys are prefixed with Greek specifically for sorting: αβγδεζηθικλμν
 	if (strLen($key)>1)  $key="α•".$key;
 	else if ($key==='/')  $key='γν•/ ?';
 	else if ($key==='\\')  $key='γη•\\ |';
 	else if ($key==='^')  $key='γα•6 ^';
-	else if (($nukey=array_merge(preg_grep("/[$key]/u", $this->doubles))) and $nukey[0])  $key="γ".$nukey[0];
+	else if (($nukey=array_merge(preg_grep("/(•| )[$key]/u", $this->doubles))) and $nukey[0])  $key="γ".$nukey[0];
 	else $key="β•".$key;
 	return $key;  }
 
@@ -489,6 +490,7 @@ private function check_combo_keyclash($a, $b)  {
 	return TRUE;  }
 
 
+
 public function sort()  {ksort($this->bound_keys, SORT_NATURAL|SORT_FLAG_CASE);}
 
 
@@ -515,11 +517,11 @@ public function build_HTML()  {
 				if ($bindings[$i][$j]['class']==='URLs')  $this->URLs++;
 				if ($bindings[$i][$j]['class']==='Commands')  $this->commands++;
 				$combo="";
-				if ($bindings[$i][$j]['combo'])  {
+				if ($bindings[$i][$j]['combo'])
 					for ($k=0, $c=count($bindings[$i][$j]['combo']);  $k<$c;  $k++)  {
 						$combo.=", <kbd><span>"
 									 .preg_replace('/(shift|ctrl|alt)\+/iu', '$1</span>+<span>', $bindings[$i][$j]['combo'][$k])
-									 ."</span></kbd> ";  }  }
+									 ."</span></kbd> ";  }
 				$html.="\t<li class='".$bindings[$i][$j]['class']
 							.($bindings[$i][$j]['combo_clash'] ? " combo_clash" : "")
 							."'>$combo<span class='cat'>".$bindings[$i][$j]['class'];
@@ -617,8 +619,8 @@ public function echo_HTML($¿cats_first)  {  ?>
 	<label><input type='radio' name='<?php echo $this->cat_list[$i]; ?>' value='hide' onchange="show(this);" />hide</label>
 	<label><input type='radio' name='<?php echo $this->cat_list[$i]; ?>' value='show' onchange="show(this);" checked />show</label>
 	<label><input type='radio' name='<?php echo $this->cat_list[$i]; ?>' value='highlight' onclick="show(this)" />highlight</label>
-	<input type='color' value='<?php echo "#",$this->rgb_from_hcg($i/$c+.5, .17, 0); ?>' />
-	<input type='color' value='<?php echo "#",$this->rgb_from_hcg($i/$c, .22, 1); ?>' />
+	<input type='color' value='#<?php echo $this->rgb_from_hcg($i/$c+.5, .17, 0); ?>' />
+	<input type='color' value='#<?php echo $this->rgb_from_hcg($i/$c, .22, 1); ?>' />
 </fieldset>
 <?php  } //close loop ?>
 </aside>
@@ -631,7 +633,7 @@ public function rgb_from_hcg($hue, $chroma, $gray)  {
 	// gray (grayscale: 0=black …… 1=white)
 	//HCG values from 0 to 1
 	//RGB results from 000000 to FFFFFF
-	if ( $chroma == 0 )  return str_repeat($this->decByte_2hex($gray*255), 3);
+	if ( $chroma == 0 )  return str_repeat($this->_2hex($gray), 3);
 	$hue = fmod($hue, 1) * 6;
 	$x = fmod($hue, 1);
 	if ($hue<1)  {$red=1; $grn=$x; $blu=0;}
@@ -645,12 +647,13 @@ public function rgb_from_hcg($hue, $chroma, $gray)  {
 	if ($hue<5)  {$red=$x; $grn=0; $blu=1;}
 	else
 	if ($hue<6)  {$red=1; $grn=0; $blu=1-$x;}
-	$red=$red+($gray-$red)*(1-$chroma);
-	$grn=$grn+($gray-$grn)*(1-$chroma);
-	$blu=$blu+($gray-$blu)*(1-$chroma);
-	return $this->decByte_2hex($red*255).$this->decByte_2hex($grn*255).$this->decByte_2hex($blu*255);  }
+	$chroma=1-$chroma;
+	$red+=($gray-$red)*$chroma;
+	$grn+=($gray-$grn)*$chroma;
+	$blu+=($gray-$blu)*$chroma;
+	return $this->_2hex($red).$this->_2hex($grn).$this->_2hex($blu);  }
 
-public function decByte_2hex($d)  {return strToUpper(($d<16 ? '0' : "").dechex($d));}
+public function _2hex($d)  {$d=round($d*255);  return ($d<16 ? '0' : "").strToUpper(dechex($d));}
 
 }  // close  KomodoKeybindingSupport  class
 ?>
