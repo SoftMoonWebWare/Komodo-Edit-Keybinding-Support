@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Komodo Project File - DO NOT EDIT -->
+<project id="af6c404b-e5a6-4f50-90f3-db87712516ea" kpf_version="4">
+<macro async="0" id="eb5c7be3-f53c-4c00-9d4b-69760d49af3e" idref="af6c404b-e5a6-4f50-90f3-db87712516ea" keyboard_shortcut="Ctrl+Shift+A" language="JavaScript" name="Clean Trailing Whitespace" rank="100" trigger="trigger_postopen" trigger_enabled="0">
+/**
+ * Standard setup for a method
+ *
+ * @param Function callback The content of the script
+ */
+function execScript ( callback )
+{
+   if ( !komodo.view )
+      return;
+
+   komodo.view.setFocus();
+   ko.views.manager.currentView.scimoz.beginUndoAction();
+
+   try {
+      callback();
+   }
+   finally {
+      ko.views.manager.currentView.scimoz.endUndoAction();
+   }
+}
+
+/**
+ * Applies the given callback to the currently selected text
+ *
+ * @param Boolean expand Whether to expand the selection to the beginning and end of the lines it is on
+ */
+function applyToSelection ( expand, callback )
+{
+   var view = ko.views.manager.currentView;
+
+   // If there is no selection, take an easy out
+   if ( view.selection == '' )
+      return;
+
+   // Grab the current position of the selection
+   var anchor = view.scimoz.anchor;
+   var currentPos = view.scimoz.currentPos;
+
+   // Compensate for the direction of the selection
+   var start = anchor &lt; currentPos ? anchor : currentPos;
+   var end = anchor &lt; currentPos ? currentPos : anchor;
+
+   // If we are expanding, then adjust the selection so it encompasses the start and end lines
+   if ( expand ) {
+      var start = view.scimoz.positionFromLine(
+         view.scimoz.lineFromPosition(start)
+      );
+
+      var end = view.scimoz.getLineEndPosition(
+         view.scimoz.lineFromPosition(end)
+      );
+
+      view.scimoz.setSel( start, end );
+   }
+
+   // Apply the transformation
+   var length = view.selection.length;
+   var fixed = callback( view.selection );
+   view.scimoz.replaceSel( fixed );
+
+   // Maintain the direction of the selection
+   if ( anchor &lt; currentPos )
+      view.scimoz.setSel( start, end - ( length - fixed.length ) );
+   else
+      view.scimoz.setSel( end - ( length - fixed.length ), start);
+}
+
+/**
+ * Applies a callback to the entire document
+ *
+ * @param Function callback The callback to apply
+ */
+function applyToDocument ( callback )
+{
+   var view = ko.views.manager.currentView;
+
+   // grab the current position of the cursor
+   var pos = view.scimoz.currentPos;
+   var line = view.scimoz.lineFromPosition( pos );
+   var col = view.scimoz.getColumn( pos );
+
+   // Apply the fix
+   view.document.buffer = callback( view.document.buffer );
+
+   // Find the best place to put the cursor
+   var startOfLine = view.scimoz.positionFromLine(line);
+   view.scimoz.gotoPos(
+      
+      // If the line they were on has been deleted...
+      startOfLine == -1
+         ? view.document.bufferLength
+         : Math.min(
+            view.scimoz.getLineEndPosition(line),
+            view.scimoz.positionFromLine(line) + col
+         )
+   );
+}
+
+/**
+ * Applies a callback to the currently in scope text
+ *
+ * This means that the callback will be applied to the current selection if there
+ * is one. Otherwise, it will be applied to the entire document
+ *
+ * @param Boolean expand Whether to expand the selection to the beginning and end of the lines it is on
+ * @param Function callback The callback to apply to the scoped text
+ */
+function applyToScopedText ( expand, callback )
+{
+   // If there is no selection, apply the callback to the entire document
+   if ( ko.views.manager.currentView.selection == '' )
+      applyToDocument( callback );
+
+   // otherwise, apply the callback to the selection
+   else
+      applyToSelection( expand, callback );
+}
+
+// The actual script that cleans up the white space
+execScript( function() {
+   applyToScopedText( true, function (text) {
+      return text.replace(/[ \t]+$/mg, '');
+   } );
+});
+</macro>
+<preference-set idref="af6c404b-e5a6-4f50-90f3-db87712516ea">
+  <boolean id="import_live">1</boolean>
+</preference-set>
+</project>
